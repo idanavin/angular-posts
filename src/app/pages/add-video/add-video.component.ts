@@ -27,23 +27,19 @@ export class AddVideoComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(form: NgForm) {
+  onSubmit() {
     this.submited = true;
-    
-    this.name = this.loginForm.value.name;
-    this.type = this.loginForm.value.type;
-    this.url = this.loginForm.value.url;
-    this.description = this.loginForm.value.description;
-    this.page = this.loginForm.value.page
+    const formValue = this.loginForm.value;
+
     // console.log(this.loginForm.value);
-    if (this.videosService.urlInputValidation(this.url , this.type)) {
-      if (this.videosService.sortValidation(this.url) ) {
-        this.url = this.videosService.fixUrl(this.url, this.type);
+    if (this.videosService.urlInputValidation(formValue.url , formValue.type)) {
+      if (this.videosService.sortValidation(formValue.url)) {
+        this.url = this.videosService.fixUrl(formValue.url, formValue.type);
       }
-      this.video = new Video(this.name, this.url, this.type, this.description, "", this.page  )
-      console.log("my URL bitch: ", this.url);
+      this.video = new Video(formValue.name, formValue.url, formValue.type, formValue.description, "", formValue.page);
       this.ServerHandelerService.storeVideo(this.video)
         .subscribe(
+          //Need to display success or fail message on page
           (response) => console.log(response),
           (error) => console.log(error)
         );
