@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Video, Videos } from '../videos/video.module';
 import { VideosService } from './videos.service';
-import { env } from 'process';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,11 +14,11 @@ export class ServerHandelerService {
   constructor(private http: HttpClient) { }
 
   storeVideo(video: Video) {
-    return this.http.post(`${env.realTimeDataBaseURL}/data.json`, video);
+    return this.http.post(`${environment.realTimeDataBaseURL}/data.json`, video);
   }
 
   getVideosFromServer() {
-    return this.http.get<Videos>(`${env.realTimeDataBaseURL}/data.json`)
+    return this.http.get<Videos>(`${environment.realTimeDataBaseURL}/data.json`)
     .pipe(
       map((videosData: Videos) => {
         const videosArray: Video[] = [];
@@ -31,11 +31,11 @@ export class ServerHandelerService {
   }
 
   deleteVideoFromServer(id: string) {
-    return this.http.delete(`${env.realTimeDataBaseURL}/data/${id}.json`); 
+    return this.http.delete(`${environment.realTimeDataBaseURL}/data/${id}.json`); 
   }
 
   editVideoOnServer(id: string, video: Video) {
-    return this.http.put(`${env.realTimeDataBaseURL}/data/${id}.json`, video);
+    return this.http.put(`${environment.realTimeDataBaseURL}/data/${id}.json`, video);
   }
 }
 

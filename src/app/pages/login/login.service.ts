@@ -5,6 +5,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { throwError, Subject } from 'rxjs';
 import { User } from './user.module';
 import { env } from 'process';
+import { environment } from 'src/environments/environment';
 
 export interface AuthResponseData {
   kind: string;
@@ -61,9 +62,10 @@ export class LoginService {
   }
 
   login(email: string, password: string) {
+    console.log(env.apiKey);
     return this.http
       .post<AuthResponseData>(
-        `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${env.apiKey}`,
+        `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${environment.apiKey}`,
         {
           email: email,
           password: password,
