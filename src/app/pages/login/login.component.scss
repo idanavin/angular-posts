@@ -1,0 +1,16 @@
+.login {
+    padding-left: 25%;
+    
+    &__tittle {
+        padding-left: 15%;
+        text-decoration: underline;
+    }
+
+    label {
+        float: right;
+    }
+   
+    button {
+        margin-left: auto;
+    }
+}

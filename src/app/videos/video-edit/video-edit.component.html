@@ -1,0 +1,50 @@
+<div class="container edit-video" *ngIf="!submited">
+  <h1>עריכת סרטון</h1>
+  <form class="form edit-video__form" (ngSubmit)="onSubmit()" #f="ngForm" >
+    <div class="name">
+      <label for="name">כותרת</label>
+      <input type="text" name="name" class="form__control form-control" ngModel [(ngModel)] = "name">
+      <div *ngIf = "!name.valid && name.touched">
+          <span class="help-block" >יש להוסיף כותרת </span>
+        </div>
+    </div>
+
+    <div class="edit-video__form__type">
+      <label for="edit-video__form__type">סוג</label>
+      <select ngModel name="type" class="form-control form-control-sm" [(ngModel)]='type'>
+        <option value="youtube">Youtube</option> <!-- NgSelected="function(video.type)" ||  ng-selected="video.type"-->
+        <option  value="vimeo">Vimeo</option>
+        <option  value="facebook">Facebook</option>
+        <option  value="other">Other</option>
+      </select>
+    </div>
+    <div *ngIf = "!type.valid && type.touched">
+        <span class="help-block" >יש לבחור סוג  </span>
+      </div>
+    <div class="edit-video__form__page">
+        <label for="edit-video__form__page">עמוד</label>
+      <select ngModel name="page" class="form-control form-control-sm" [(ngModel)]='page'>
+        <option value="weddings">Weddings</option>
+        <option value="business">Business</option>
+      </select>
+    </div>
+    <div *ngIf = "!page.valid && page.touched">
+        <span class="help-block" >יש לבחור עמוד  </span>
+      </div>
+    <div class="url">
+      <label for="url">כתובת מלאה</label>
+      <input type="text" name="url" class="form__control form-control" ngModel [(ngModel)]='url'>
+    </div>
+    <div class="description">
+      <label for="pass">תיאור</label>
+      <input type="textarea" name="description" class="form__control form-control" ngModel [(ngModel)]="description">
+    </div>
+
+    <div class="submit">
+      <button type="submit" class="btn btn-secondary">ערוך</button>
+    </div>
+  </form>
+
+</div>
+
+<div class="sucsuess" *ngIf="changesDone">נערך בהצלחה</div>

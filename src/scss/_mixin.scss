@@ -1,0 +1,17 @@
+@import "variables";
+
+@mixin for-phone-only {
+    @media (max-width: $breakpoint-tablet) { @content; }
+}
+@mixin for-desktop-up {
+    @media (min-width: $breakpoint-widescreen) { @content; }
+}
+// @mixin for-tablet-portrait-up {
+//     @media (min-width: $breakpoint-tablet) { @content; }
+// }
+// @mixin for-tablet-landscape-up {
+//     @media (min-width: 900px) { @content; }
+// }
+// @mixin for-big-desktop-up {
+//     @media (min-width: 1800px) { @content; }
+// }

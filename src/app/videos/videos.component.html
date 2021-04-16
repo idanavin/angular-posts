@@ -1,0 +1,18 @@
+<div class="container">
+  <ul>
+    <li *ngFor="let video of videosArray" class="video">
+      <h2 class="video__tittle">{{ video.name  }}</h2>
+      <div class="video__player">
+      <iframe [src]="video.url | safe: 'resourceUrl'"
+        frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+      </div>
+      <div class="video__description">{{ video.description }}</div>
+      <div class="buttons" *ngIf="isLogged">
+        <button class="btn btn-primary" (click)="onEdit()">{{EditButtonContent ? 'בטל' : 'ערוך'}}</button>
+        <!-- <button class="btn btn-primary" (click)="onEdit()"></button> -->
+        <button class="btn btn-danger" (click)="onDelete(video.id)">Delete</button>
+        <app-video-edit [video]='video' *ngIf="showEditForm"></app-video-edit>
+      </div>
+    </li>
+  </ul>
+</div>

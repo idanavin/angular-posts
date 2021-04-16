@@ -1,0 +1,56 @@
+.icon-container {
+    display: flex;
+    justify-content: center;
+}
+
+.icon {
+    // position: relative;
+    display: inline-block;
+    margin: 1rem auto;
+    border-radius: 100%;
+
+    &:hover {
+        .icon__background {
+            transform: scale(0.9);
+            transform-origin: center;
+        }
+
+        // .icon__img {    //change icon to white after hover animation finish (not working)
+        //     fill: white !important;
+        // }
+    }
+    
+    &__background {
+        border-radius: 100%;
+        height: 45px;
+        width: 45px;
+        position: absolute;
+        transform: scale(0);
+        transition: all 0.5s ease-out;
+        -moz-transition: all 0.5s ease-out;
+        -web-kit-transition: all 0.5s ease-out;
+        
+        z-index: -1;
+
+        &--fb {
+            background-color: rgba(49, 49, 206, 0.76);
+        }
+
+        &--yt {
+            background-color: rgba(230, 68, 68, 0.76);
+        }
+
+        &--inst {
+            background-color: rgba(219, 34, 136, 0.76);
+        }
+
+        &--twi {
+            background-color: rgba(18, 151, 192, 0.76);
+        }
+    }
+
+    a {
+        cursor: default;
+        text-decoration: none;
+    }
+}

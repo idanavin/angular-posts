@@ -1,0 +1,47 @@
+@import "~src/scss/variables";
+@import "~src/scss/keyframes";
+@import "~src/scss/mixin";
+
+.nav {
+    display: block;
+    text-align: end;
+    
+  
+
+    .link {
+        display: inline-block;
+        padding-left: 50px;
+        padding-right: 50px;
+
+        &:hover {
+            animation: rotate 0.3s ease-in-out;
+        }
+        
+        a {
+            text-decoration: none;
+            color: $color-dark;
+            font-size: 1.5rem;
+        }
+    }
+
+    .links {
+        padding-top: 3vh;
+        text-align: center;
+        @include for-phone-only {
+            display: none;
+        }
+    }
+    
+  
+    .active {
+        background-color: $color-dark-active;
+       
+    }
+    
+    .active a {
+         color: $color-white ;
+        
+        
+    }
+
+}

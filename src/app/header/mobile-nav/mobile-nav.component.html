@@ -1,0 +1,13 @@
+<div class="mobile-nav" (click)="onToggleMenu()"></div>
+
+<ul class="links-nav" [ngClass]="{'toggleMenuStyle': toggleMenu === false}">
+  <!--<i class="fa fa-bars icon" (click)="onToggleMenu()"></i>-->
+  <!-- <li (click)="onToggleMenu()">TARGET</li> -->
+  <li class="link" routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"><a routerLink='/'>בית</a></li>
+  <li class="link" routerLinkActive='active'><a routerLink='/business'>עסקים</a></li>
+  <li class="link" routerLinkActive='active'><a routerLink='/weddings'>חתונות</a></li>
+  <li class="link" routerLinkActive="active"><a routerLink="/contact">צור קשר</a></li>
+  <li class="link" *ngIf="!isLogged" routerLinkActive="active" ><a routerLink="/login" >התחבר</a></li>
+  <li class="link" *ngIf="isLogged" routerLinkActive="active"><a routerLink="/add-video">הוספת סרטון</a></li>
+  <li class="link" *ngIf="isLogged" (click)="onLogout()"><a>התנתק</a></li>
+</ul>

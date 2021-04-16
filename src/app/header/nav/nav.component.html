@@ -1,0 +1,11 @@
+<div class="nav">
+  <ul class="links">
+    <li class="link" *ngIf="!isLogged" routerLinkActive="active" ><a routerLink="/login" >התחבר</a></li>
+    <li class="link" *ngIf="isLogged" (click)="onLogout()"><a>התנתק</a></li>
+    <li class="link" *ngIf="isLogged" routerLinkActive="active"><a routerLink="/add-video">הוספת סרטון</a></li>
+    <li class="link" routerLinkActive="active"><a routerLink="/contact">צור קשר</a></li>
+    <li class="link" routerLinkActive="active"><a routerLink="/business">עסקים</a></li>
+    <li class="link" routerLinkActive="active"><a routerLink="/weddings">חתונות</a></li>
+    <li class="link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/home">בית</a></li>
+  </ul>
+</div>

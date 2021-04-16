@@ -1,0 +1,50 @@
+<div class="container login">
+  <h1 class="login__tittle">התחברות</h1>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="alert alert-danger" *ngIf="error">
+        <p>{{ error }}</p>
+      </div>
+      <div *ngIf="isLoading" style="text-align: center;">
+        <app-loading-spinner></app-loading-spinner>>
+      </div>
+      <form #form="ngForm" (ngSubmit)="onSubmit(form)" *ngIf="!isLoading">
+        <div class="form-group">
+          <label for="email">אימייל</label>
+          <input type="email" id="email" class="form-control" ngModel name="email" required email />
+        </div>
+        <div class="form-group">
+          <label for="password">סיסמא</label>
+          <input type="password" id="password" class="form-control" ngModel name="password" required minlength="6" />
+        </div>
+        <div>
+          <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+            התחבר
+          </button>
+
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!--
+  <form (ngSubmit)="onSubmit()" #form="ngForm">
+  <div class="username">
+    <label for="user">Username</label>
+    <input type="text" id="user" class="form-control" ngModel name="user" autocomplete="email" required>
+  </div>
+
+  <div class="password">
+    <label for="pass">Password</label>
+    <input type="password" id="pass" class="form-control" ngModel name="pass" autocomplete="password" required
+      minlength="6">
+  </div>
+
+  <div class="submit">
+    <button type="submit" [disabled]="!form.valid">Submit</button>
+  </div>
+</form>
+
+
+-->

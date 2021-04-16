@@ -1,0 +1,43 @@
+@import "~src/scss/variables";
+
+.home {
+    background-color: $color-light-grey;
+    
+    &__row {
+
+        &__imgs {
+            width: 500px;
+            
+            &__img {
+                min-width: 300px;
+                height: 300px;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                border-radius: 0.5rem;
+                box-shadow: 0 1.5rem 1.5rem rgba($color-boxshaow, 0.4);
+                margin: 35% auto;
+                &--1 {
+                    background-image: url(https://i.ytimg.com/vi/58R-WRSV_A0/maxresdefault.jpg);
+                }
+                &--2 {
+                    background-image: url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/4ZrVLdVKeijzurndz/people-emotion-and-facial-expression-concept-face-of-happy-smiling-young-man_bfgnne8nh_thumbnail-full08.png);
+                }
+            }
+        }
+
+        &__text {
+            text-align: right;
+            padding-top: 25px;
+            color: $color-dark;
+            
+            span {
+                display: block;
+                font-size: 1.75rem;
+                font-weight: 300;
+                // color: $color-light-grey;
+                margin-bottom: 50px;
+            }
+        }
+    }
+}

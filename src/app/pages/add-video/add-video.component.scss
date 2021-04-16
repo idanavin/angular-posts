@@ -1,0 +1,59 @@
+
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+
+.help-block {
+    color: red;
+}
+
+option {
+    direction: rtl;
+}
+.add-video {
+    text-align: right;
+
+    width: 700px;
+    height: auto;
+
+    &__form {
+
+        input {
+            text-align: right;
+        }
+        &__type {
+            height: 50px;
+            margin-top: 10px;
+
+            select {
+                float: left;
+                width: 50%;
+
+                
+            }
+        }
+
+        &__page {
+            height: 50px;   
+            
+            select {
+                float: left;
+                width: 50%;
+
+               
+            }
+        }
+    }
+
+}
+
+label {
+    float: right;
+    margin-bottom: 10px;
+}
+
+
+.submit {
+    margin: 10px;
+    float: left;
+}

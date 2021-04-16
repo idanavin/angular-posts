@@ -1,0 +1,61 @@
+@import "~src/scss/variables";
+@import "~src/scss/keyframes";
+@import "~src/scss/mixin";
+
+.video{
+    display: block;
+    height: 100%; //560px
+    background-color: $color-light-grey;
+    color: $color-dark;
+    padding-top: 5vh;
+    margin-bottom: 10vh; 
+    box-shadow: 6px 6px 20px $color-boxshaow;
+    text-align: center;
+
+    // animation: opens-down 1s ease-out;
+
+    &__title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    &__player {
+        width: 100%;
+        height: 100%;
+        
+        iframe {
+            width: 640px; 
+            height: 360px;
+
+            // animation: opens-down 2s ease-out ;
+        }
+    }
+
+    &__description {
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+    @include for-desktop-up {
+        &__title {
+            font-weight: 700;
+            font-size: 2.2rem;
+        }
+    
+        &__player {
+            iframe {
+                width: 960px; 
+                height: 540px;
+            }
+        }
+    }
+    
+    @include for-phone-only {
+        &__player {
+            iframe {
+                width: 100%; 
+                height: '';
+            }
+        }
+    }
+}

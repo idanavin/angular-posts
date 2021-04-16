@@ -1,0 +1,58 @@
+<div class="container add-video">
+  <h1>הוספת סרטון</h1>
+  <form class="form add-video__form" (ngSubmit)="onSubmit()" #f="ngForm">
+    <div class="name">
+      <label for="name">כותרת</label>
+      <div *ngIf = "!name.valid && name.touched">
+        <span class="help-block" >יש להוסיף כותרת </span>
+      </div>
+      
+      <input type="text" id="name" class="form__control form-control" ngModel name="name" required #name="ngModel">
+    </div>
+
+    <div class="add-video__form__type">
+      <select ngModel name="type" class="form-control form-control-sm" required #type="ngModel"> 
+        <option value="youtube"  >Youtube</option>
+        <option value="vimeo">Vimeo</option>
+        <option value="facebook">Facebook</option>
+        <option value="other">Other</option>
+      </select>
+      <div *ngIf = "!type.valid && type.touched">
+        <span class="help-block" >יש לבחור סוג  </span>
+      </div>
+      <label for="add-video__form__type">סוג</label>
+    </div>
+    <div class="add-video__form__page">
+      <select ngModel name="page" class="form-control form-control-sm" required #page="ngModel">
+        <option value="weddings" selected>Weddings</option>
+        <option value="business">Business</option>
+      </select>
+      <div *ngIf = "!page.valid && page.touched">
+        <span class="help-block" >יש לבחור עמוד  </span>
+      </div>
+      <label for="add-video__form__page">עמוד</label>
+    </div>
+    <div class="URL">
+      <label for="URL">כתובת מלאה</label>
+      <div *ngIf = "!url.valid && url.touched">
+        <span class="help-block" >יש להוסיף כתובת   </span>
+      </div>
+      <div *ngIf = "!urlValid">
+        <span class="help-block" >הכתובת אינה תואמת את הסוג </span>
+      </div>
+      <input type="text" id="URL" class="form__control form-control" ngModel name="url" required #url="ngModel">
+    </div>
+    <div class="description">
+      <label for="pass">תיאור</label>
+      <div *ngIf = "!description.valid && description.touched">
+        <span class="help-block" >יש לרשום תיאור   </span>
+      </div>
+      <input type="textarea" id="description" class="form__control form-control" ngModel name="description" required #description="ngModel">
+    </div>
+
+    <div class="submit">
+      <button type="submit" class="btn btn-secondary" [disabled]="!f.valid">שלח</button>
+    </div>
+  </form>
+
+</div>
